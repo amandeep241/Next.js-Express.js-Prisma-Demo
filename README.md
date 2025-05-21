@@ -66,7 +66,7 @@ psql
 CREATE DATABSE <YOUR_DB_NAME>;
 ```
 
-
+Create Prisma schema and run the migrations.
 ```bash
 npx prisma generate
 npx prisma migrate dev
