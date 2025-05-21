@@ -58,6 +58,15 @@ FRONTEND_URL="http://localhost:3000"
 ```
 
 4. Setup database:
+
+Create database in case it doesn't exits 
+```bash
+sudo -i -u postgres
+psql
+CREATE DATABSE <YOUR_DB_NAME>;
+```
+
+
 ```bash
 npx prisma generate
 npx prisma migrate dev
