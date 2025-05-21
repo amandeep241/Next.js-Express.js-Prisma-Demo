@@ -54,3 +54,5 @@ backend-express-prisma/prisma/migration_lock.toml
 # Cache
 .cache
 .next/cache/
+
+.vercel
