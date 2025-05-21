@@ -17,7 +17,10 @@ export default function MessageList({ messages, currentUserId }: MessageListProp
                 {message.userId === currentUserId && (
                   <span className="absolute right-0 top-0 text-xs text-indigo-600">You</span>
                 )}
-                <h3 className="text-sm font-medium text-gray-900">{message.name}</h3>
+                <h3 className="text-sm font-medium text-gray-900">
+                  {message.name}
+                  <span className="ml-2 text-xs text-gray-500">ID: {message.userId}</span>
+                </h3>
                 <p className="mt-1 text-sm text-gray-600">{message.message}</p>
                 <p className="mt-1 text-xs text-gray-500">
                   {new Date(message.createdAt).toLocaleString()}

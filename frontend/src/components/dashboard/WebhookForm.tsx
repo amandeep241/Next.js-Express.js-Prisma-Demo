@@ -41,8 +41,12 @@ export default function WebhookForm({ onMessageSent }: WebhookFormProps) {
       onMessageSent(result);
       toast.success('Message sent successfully!');
       reset({ message: '' }); // Only reset message, keep name
-    } catch (error) {
-      toast.error('Failed to send message');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Failed to send message';
+      toast.error(errorMessage);
+      console.error('Message sending error:', error);
     }
   };
 

@@ -31,8 +31,12 @@ export default function SignupForm() {
       localStorage.setItem('token', response.token);
       toast.success('Account created successfully!');
       router.push('/dashboard');
-    } catch (error) {
-      toast.error('Registration failed');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Registration failed';
+      toast.error(errorMessage);
+      console.error('Registration error:', error);
     }
   };
 

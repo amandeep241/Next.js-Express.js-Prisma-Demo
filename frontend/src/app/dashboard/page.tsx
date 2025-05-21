@@ -2,11 +2,12 @@
 
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { webhook, setAuthToken } from '@/services/api';
 import WebhookForm from '@/components/dashboard/WebhookForm';
 import MessageList from '@/components/dashboard/MessageList';
 import { Message } from '@/types/message';
+import { ApiError } from '@/types/error';
 import toast from 'react-hot-toast';
 
 const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL || 'ws://localhost:3000';
@@ -17,15 +18,16 @@ export default function DashboardPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     if (!token) return;
     
     try {
       setAuthToken(token);
       const fetchedMessages = await webhook.getMessages();
       setMessages(fetchedMessages);
-    } catch (error: any) {
-      if (error?.response?.status === 401) {
+    } catch (error: unknown) {
+      const apiError = error as ApiError;
+      if (apiError?.response?.status === 401) {
         toast.error('Session expired. Please login again');
         logout();
       } else {
@@ -34,7 +36,7 @@ export default function DashboardPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [token, logout]);
 
   useEffect(() => {
     if (!token) {
@@ -58,7 +60,7 @@ export default function DashboardPage() {
     return () => {
       ws.close();
     };
-  }, [token, router]);
+  }, [token, router, fetchMessages]);
 
   const handleMessageSent = (message: Message) => {
     setMessages(prev => [...prev, message]);

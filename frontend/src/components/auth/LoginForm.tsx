@@ -34,8 +34,12 @@ export default function LoginForm() {
       
       toast.success('Login successful!');
       router.push('/dashboard');
-    } catch (error) {
-      toast.error('Login failed');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'An error occurred during login';
+      toast.error(errorMessage);
+      console.error('Login error:', error);
     }
   };
 

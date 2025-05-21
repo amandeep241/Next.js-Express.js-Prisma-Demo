@@ -11,7 +11,7 @@ export default function Home() {
       <div className="max-w-2xl w-full space-y-10 bg-white p-8 rounded-xl shadow-sm">
         <div>
           <h1 className="text-5xl font-extrabold text-center text-gray-900 tracking-tight">
-            Welcome to <span className="text-indigo-600">Amandeep's App</span>
+            Welcome to <span className="text-indigo-600">Amandeep&apos;s App</span>
           </h1>
 
           <p className="mt-4 text-center text-lg text-gray-600">
