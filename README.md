@@ -89,13 +89,7 @@ cd frontend
 npm install
 ```
 
-3. Create `.env.local` file:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
-NEXT_PUBLIC_WEBSOCKET_URL=ws://localhost:3001
-```
-
-4. Start development server:
+3. Start development server:
 ```bash
 npm run dev
 ```
