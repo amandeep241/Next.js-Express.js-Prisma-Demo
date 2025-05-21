@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend-express-prisma/node_modules/
+
+package-lock.json
+
+# Next.js build outputs
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel/
+
+# Build outputs
+backend-express-prisma/build/
+backend-express-prisma/dist/
+
+# Environment files
+.env
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.pem
+
+# Testing
+coverage/
+frontend/coverage/
+backend-express-prisma/coverage/
+
+# Misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# Prisma
+backend-express-prisma/prisma/*.db
+backend-express-prisma/prisma/migrations/*_init.ts
+backend-express-prisma/prisma/migration_lock.toml
+
+# Cache
+.cache
+.next/cache/
