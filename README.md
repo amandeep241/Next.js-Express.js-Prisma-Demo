@@ -1,4 +1,4 @@
-# Real-time Messaging Application
+# Real-time Form Application
 
 A full-stack application built with Next.js and Express.js that enables real-time messaging with user authentication and webhook integration.
 
