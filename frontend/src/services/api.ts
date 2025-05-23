@@ -3,7 +3,11 @@ import { AuthResponse } from '@/types/auth';
 import { Message } from '@/types/message';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  withCredentials: true
 });
 
 export const setAuthToken = (token: string) => {

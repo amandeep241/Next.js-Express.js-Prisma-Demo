@@ -75,3 +75,7 @@ export const getMessages = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Failed to fetch messages' });
   }
 };
+
+export const testing = async (req: Request, res: Response) => {
+  res.status(200).json({ error: 'Hi all' });
+};

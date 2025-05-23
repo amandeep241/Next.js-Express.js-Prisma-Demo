@@ -2,16 +2,26 @@
 
 import { useAuth } from "@/contexts/AuthContext";
 import Link from "next/link";
+import { useEffect } from 'react';
 
 export default function Home() {
   const { user } = useAuth();
+
+  useEffect(() => {
+
+    fetch('https://backend-express-prisma-eight.vercel.app/api/health')
+    .then(res => res.json())
+    .then(console.log)
+    .catch(console.error);
+  })
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl w-full space-y-10 bg-white p-8 rounded-xl shadow-sm">
         <div>
           <h1 className="text-5xl font-extrabold text-center text-gray-900 tracking-tight">
-            Welcome to <span className="text-indigo-600">Amandeep&apos;s App</span>
+            Welcome to <span className="text-indigo-600">Amandeep&apos;s App :)</span>
           </h1>
 
           <p className="mt-4 text-center text-lg text-gray-600">
